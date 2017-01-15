@@ -1,4 +1,4 @@
 ExUnit.start
 
-Ecto.Adapters.SQL.Sandbox.mode(ElmArticles.Repo, :manual)
+Ecto.Adapters.SQL.Sandbox.mode(Reader.Repo, :manual)
 

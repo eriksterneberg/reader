@@ -8,13 +8,13 @@ use Mix.Config
 # file or create a script for recreating it, since it's
 # kept out of version control and might be hard to recover
 # or recreate for your teammates (or you later on).
-config :elm_articles, ElmArticles.Endpoint,
-  secret_key_base: "VXrq5W+6rk7zAAbGid/Co+1YwdQWENJbsXSUUEQrZs/EZqL432PllBDn2ZJnL9X7"
+config :reader, Reader.Endpoint,
+  secret_key_base: "ZdW9pJdFVpWUy79Eby1Mu6dT7V0B84m5iPldieRMz0cGR/ZvlNACpH6CB/nQ6KkG"
 
 # Configure your database
-config :elm_articles, ElmArticles.Repo,
+config :reader, Reader.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "postgres",
-  database: "elm_articles_prod",
+  database: "reader_prod",
   pool_size: 20

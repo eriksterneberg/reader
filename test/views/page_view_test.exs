@@ -1,3 +1,3 @@
-defmodule ElmArticles.PageViewTest do
-  use ElmArticles.ConnCase, async: true
+defmodule Reader.PageViewTest do
+  use Reader.ConnCase, async: true
 end

@@ -1,4 +1,4 @@
-defmodule ElmArticles.ModelCase do
+defmodule Reader.ModelCase do
   @moduledoc """
   This module defines the test case to be used by
   model tests.
@@ -16,20 +16,20 @@ defmodule ElmArticles.ModelCase do
 
   using do
     quote do
-      alias ElmArticles.Repo
+      alias Reader.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import ElmArticles.ModelCase
+      import Reader.ModelCase
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(ElmArticles.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Reader.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(ElmArticles.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Reader.Repo, {:shared, self()})
     end
 
     :ok
@@ -59,7 +59,7 @@ defmodule ElmArticles.ModelCase do
   """
   def errors_on(struct, data) do
     struct.__struct__.changeset(struct, data)
-    |> Ecto.Changeset.traverse_errors(&ElmArticles.ErrorHelpers.translate_error/1)
+    |> Ecto.Changeset.traverse_errors(&Reader.ErrorHelpers.translate_error/1)
     |> Enum.flat_map(fn {key, errors} -> for msg <- errors, do: {key, msg} end)
   end
 end

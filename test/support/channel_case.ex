@@ -1,4 +1,4 @@
-defmodule ElmArticles.ChannelCase do
+defmodule Reader.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -20,22 +20,22 @@ defmodule ElmArticles.ChannelCase do
       # Import conveniences for testing with channels
       use Phoenix.ChannelTest
 
-      alias ElmArticles.Repo
+      alias Reader.Repo
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
 
 
       # The default endpoint for testing
-      @endpoint ElmArticles.Endpoint
+      @endpoint Reader.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(ElmArticles.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Reader.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(ElmArticles.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Reader.Repo, {:shared, self()})
     end
 
     :ok

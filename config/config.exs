@@ -6,15 +6,15 @@
 use Mix.Config
 
 # General application configuration
-config :elm_articles,
-  ecto_repos: [ElmArticles.Repo]
+config :reader,
+  ecto_repos: [Reader.Repo]
 
 # Configures the endpoint
-config :elm_articles, ElmArticles.Endpoint,
+config :reader, Reader.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "O1FJ4pOfsByj/XObA46OpgW6wXk3DfnDlozNMwnCAYDmv9vyG20x2EO3MKjp2xWd",
-  render_errors: [view: ElmArticles.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: ElmArticles.PubSub,
+  secret_key_base: "8+vcCmq1elAa3HD8OwiVhIx+xoGWy+qAqODWcX+7h5tw123nivVl06VwAwuiFRh8",
+  render_errors: [view: Reader.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: Reader.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger

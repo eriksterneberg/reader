@@ -1,3 +1,3 @@
-defmodule ElmArticles.LayoutViewTest do
-  use ElmArticles.ConnCase, async: true
+defmodule Reader.LayoutViewTest do
+  use Reader.ConnCase, async: true
 end

@@ -1,12 +1,12 @@
-defmodule ElmArticles.Web do
+defmodule Reader.Web do
   @moduledoc """
   A module that keeps using definitions for controllers,
   views and so on.
 
   This can be used in your application as:
 
-      use ElmArticles.Web, :controller
-      use ElmArticles.Web, :view
+      use Reader.Web, :controller
+      use Reader.Web, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -30,12 +30,12 @@ defmodule ElmArticles.Web do
     quote do
       use Phoenix.Controller
 
-      alias ElmArticles.Repo
+      alias Reader.Repo
       import Ecto
       import Ecto.Query
 
-      import ElmArticles.Router.Helpers
-      import ElmArticles.Gettext
+      import Reader.Router.Helpers
+      import Reader.Gettext
     end
   end
 
@@ -49,9 +49,9 @@ defmodule ElmArticles.Web do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import ElmArticles.Router.Helpers
-      import ElmArticles.ErrorHelpers
-      import ElmArticles.Gettext
+      import Reader.Router.Helpers
+      import Reader.ErrorHelpers
+      import Reader.Gettext
     end
   end
 
@@ -65,10 +65,10 @@ defmodule ElmArticles.Web do
     quote do
       use Phoenix.Channel
 
-      alias ElmArticles.Repo
+      alias Reader.Repo
       import Ecto
       import Ecto.Query
-      import ElmArticles.Gettext
+      import Reader.Gettext
     end
   end
 

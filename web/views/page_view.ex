@@ -1,3 +1,3 @@
-defmodule ElmArticles.PageView do
-  use ElmArticles.Web, :view
+defmodule Reader.PageView do
+  use Reader.Web, :view
 end

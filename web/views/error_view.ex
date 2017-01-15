@@ -1,5 +1,5 @@
-defmodule ElmArticles.ErrorView do
-  use ElmArticles.Web, :view
+defmodule Reader.ErrorView do
+  use Reader.Web, :view
 
   def render("404.html", _assigns) do
     "Page not found"

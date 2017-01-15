@@ -1,5 +1,5 @@
-defmodule ElmArticles.ArticleController do
-  use ElmArticles.Web, :controller
+defmodule Reader.ArticleController do
+  use Reader.Web, :controller
 
   def index(conn, _params) do
     json conn, %{

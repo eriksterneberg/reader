@@ -1,3 +1,3 @@
-defmodule ElmArticles.LayoutView do
-  use ElmArticles.Web, :view
+defmodule Reader.LayoutView do
+  use Reader.Web, :view
 end
