@@ -1,0 +1,150 @@
+var _user$project$Components_ArticleList$articleDecoder = A5(
+	_elm_lang$core$Json_Decode$map4,
+	_user$project$Article$Model,
+	A2(_elm_lang$core$Json_Decode$field, 'title', _elm_lang$core$Json_Decode$string),
+	A2(_elm_lang$core$Json_Decode$field, 'url', _elm_lang$core$Json_Decode$string),
+	A2(_elm_lang$core$Json_Decode$field, 'posted_by', _elm_lang$core$Json_Decode$string),
+	A2(_elm_lang$core$Json_Decode$field, 'posted_on', _elm_lang$core$Json_Decode$string));
+var _user$project$Components_ArticleList$decodeArticleData = A2(
+	_elm_lang$core$Json_Decode$field,
+	'data',
+	_elm_lang$core$Json_Decode$list(_user$project$Components_ArticleList$articleDecoder));
+var _user$project$Components_ArticleList$initialModel = {
+	articles: {ctor: '[]'}
+};
+var _user$project$Components_ArticleList$renderArticle = function (model) {
+	return A2(
+		_elm_lang$html$Html$a,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$href(model.url),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$li,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text(model.title),
+					_1: {ctor: '[]'}
+				}),
+			_1: {ctor: '[]'}
+		});
+};
+var _user$project$Components_ArticleList$renderArticles = function (model) {
+	return A2(_elm_lang$core$List$map, _user$project$Components_ArticleList$renderArticle, model.articles);
+};
+var _user$project$Components_ArticleList$articles = {
+	articles: {
+		ctor: '::',
+		_0: {title: 'How to wash a dog without getting bitten', postedBy: 'Erik Sterneberg', postedOn: '2017-01-01', url: 'https://www.google.se'},
+		_1: {
+			ctor: '::',
+			_0: {title: 'Buying flowers is harder than you think', postedBy: 'Erik Sterneberg', postedOn: '2017-01-01', url: 'https://www.google.se'},
+			_1: {
+				ctor: '::',
+				_0: {title: 'Make love, not war', postedBy: 'Erik Sterneberg', postedOn: '2017-01-01', url: 'https://www.google.se'},
+				_1: {ctor: '[]'}
+			}
+		}
+	}
+};
+var _user$project$Components_ArticleList$Model = function (a) {
+	return {articles: a};
+};
+var _user$project$Components_ArticleList$FetchFail = function (a) {
+	return {ctor: 'FetchFail', _0: a};
+};
+var _user$project$Components_ArticleList$FetchSucceed = function (a) {
+	return {ctor: 'FetchSucceed', _0: a};
+};
+var _user$project$Components_ArticleList$parseResult = function (result) {
+	var _p0 = result;
+	if (_p0.ctor === 'Ok') {
+		return _user$project$Components_ArticleList$FetchSucceed(_p0._0);
+	} else {
+		return _user$project$Components_ArticleList$FetchFail(_p0._0);
+	}
+};
+var _user$project$Components_ArticleList$fetchArticles = A2(
+	_elm_lang$core$Task$attempt,
+	_user$project$Components_ArticleList$parseResult,
+	_elm_lang$http$Http$toTask(
+		A2(_elm_lang$http$Http$get, '/api/articles', _user$project$Components_ArticleList$decodeArticleData)));
+var _user$project$Components_ArticleList$update = F2(
+	function (msg, model) {
+		var _p1 = msg;
+		switch (_p1.ctor) {
+			case 'NoOp':
+				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+			case 'Fetch':
+				return {ctor: '_Tuple2', _0: _user$project$Components_ArticleList$articles, _1: _user$project$Components_ArticleList$fetchArticles};
+			case 'FetchSucceed':
+				return {
+					ctor: '_Tuple2',
+					_0: _user$project$Components_ArticleList$Model(_p1._0),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			default:
+				var _p2 = _p1._0;
+				if (_p2.ctor === 'BadPayload') {
+					return A2(
+						_elm_lang$core$Debug$log,
+						_p2._0,
+						{ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none});
+				} else {
+					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+				}
+		}
+	});
+var _user$project$Components_ArticleList$Fetch = {ctor: 'Fetch'};
+var _user$project$Components_ArticleList$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class('article-list'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$h2,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('Article List'),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$button,
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html_Events$onClick(_user$project$Components_ArticleList$Fetch),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$class('btn btn-primary'),
+							_1: {ctor: '[]'}
+						}
+					},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text('Fetch Articles'),
+						_1: {ctor: '[]'}
+					}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$ul,
+						{ctor: '[]'},
+						_user$project$Components_ArticleList$renderArticles(model)),
+					_1: {ctor: '[]'}
+				}
+			}
+		});
+};
+var _user$project$Components_ArticleList$NoOp = {ctor: 'NoOp'};

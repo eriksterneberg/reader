@@ -1,0 +1,2 @@
+var _user$project$Model$initialModel = {articleListModel: _user$project$Components_ArticleList$initialModel};
+var _user$project$Model$init = {ctor: '_Tuple2', _0: _user$project$Model$initialModel, _1: _elm_lang$core$Platform_Cmd$none};

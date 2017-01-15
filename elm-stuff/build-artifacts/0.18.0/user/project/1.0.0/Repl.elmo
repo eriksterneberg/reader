@@ -1,0 +1,24 @@
+var _user$project$Repl$t_s_o_l = {ctor: '_Tuple0'};
+var _user$project$Repl$j = '{ \"data\" : [ { \"title\": \"Article Title\", \"url\": \"Article URL\", \"posted_by\": \"Author\", \"posted_on\": \"Timestamp\" } ]}';
+var _user$project$Repl$Model = F4(
+	function (a, b, c, d) {
+		return {title: a, url: b, postedBy: c, postedOn: d};
+	});
+var _user$project$Repl$articleDecoder = A5(
+	_elm_lang$core$Json_Decode$map4,
+	_user$project$Repl$Model,
+	A2(_elm_lang$core$Json_Decode$field, 'title', _elm_lang$core$Json_Decode$string),
+	A2(_elm_lang$core$Json_Decode$field, 'url', _elm_lang$core$Json_Decode$string),
+	A2(_elm_lang$core$Json_Decode$field, 'posted_by', _elm_lang$core$Json_Decode$string),
+	A2(_elm_lang$core$Json_Decode$field, 'posted_on', _elm_lang$core$Json_Decode$string));
+var _user$project$Repl$decodeArticleData = A2(
+	_elm_lang$core$Json_Decode$field,
+	'data',
+	_elm_lang$core$Json_Decode$list(_user$project$Repl$articleDecoder));
+var _user$project$Repl$d_e_l_t_r_o_n_3_0_3_0 = _elm_lang$http$Http$toTask(
+	A2(_elm_lang$http$Http$get, '/api/articles', _user$project$Repl$decodeArticleData));
+var _user$project$Repl$foo = _elm_lang$core$Json_Decode$decodeString(
+	A2(
+		_elm_lang$core$Json_Decode$field,
+		'data',
+		_elm_lang$core$Json_Decode$list(_user$project$Repl$articleDecoder)));

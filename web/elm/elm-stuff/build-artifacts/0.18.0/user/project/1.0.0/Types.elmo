@@ -1,0 +1,6 @@
+var _user$project$Types$Model = function (a) {
+	return {articleListModel: a};
+};
+var _user$project$Types$ArticleListMsg = function (a) {
+	return {ctor: 'ArticleListMsg', _0: a};
+};

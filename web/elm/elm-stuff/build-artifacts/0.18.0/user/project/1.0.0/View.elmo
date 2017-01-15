@@ -1,0 +1,17 @@
+var _user$project$View$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class('elm-app'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$map,
+				_user$project$Types$ArticleListMsg,
+				_user$project$Components_ArticleList$view(model.articleListModel)),
+			_1: {ctor: '[]'}
+		});
+};
