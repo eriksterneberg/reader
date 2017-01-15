@@ -22,23 +22,22 @@ type Msg = NoOp
          | FetchFail Http.Error
 
 
-
-articles : Model
-articles = { articles =
-               [ { title = "How to wash a dog without getting bitten"
-                 , postedBy = "Erik Sterneberg"
-                 , postedOn = "2017-01-01"
-                 , url = "https://www.google.se"}
-               , { title = "Buying flowers is harder than you think"
-                 , postedBy = "Erik Sterneberg"
-                 , postedOn = "2017-01-01"
-                 , url = "https://www.google.se"}
-               , { title = "Make love, not war"
-                 , postedBy = "Erik Sterneberg"
-                 , postedOn = "2017-01-01"
-                 , url = "https://www.google.se"}
-               ]
-           }
+--articles : Model
+--articles = { articles =
+--               [ { title = "How to wash a dog without getting bitten"
+--                 , postedBy = "Erik Sterneberg"
+--                 , postedOn = "2017-01-01"
+--                 , url = "https://www.google.se"}
+--               , { title = "Buying flowers is harder than you think"
+--                 , postedBy = "Erik Sterneberg"
+--                 , postedOn = "2017-01-01"
+--                 , url = "https://www.google.se"}
+--               , { title = "Make love, not war"
+--                 , postedBy = "Erik Sterneberg"
+--                 , postedOn = "2017-01-01"
+--                 , url = "https://www.google.se"}
+--               ]
+--           }
 
 
 renderArticle : Article.Model -> Html a
@@ -55,7 +54,7 @@ update msg model = case msg of
     NoOp ->
         (model, Cmd.none)
     Fetch ->
-        (articles, fetchArticles)
+        (initialModel, fetchArticles)
     FetchSucceed articleList ->
         (Model articleList, Cmd.none)
     FetchFail error ->
@@ -80,15 +79,6 @@ parseResult result = case result of
 
 
 decodeArticleData = field "data" (list articleDecoder)
-
-
---decodeArticleData : String -> List Article.Model
---decodeArticleData rawData = case decodeString (field "data" (list articleDecoder)) rawData of
---    Ok articleList ->
---        articleList
---    Err _ ->
---        [ ]
-
 
 
 articleDecoder: Decoder Article.Model

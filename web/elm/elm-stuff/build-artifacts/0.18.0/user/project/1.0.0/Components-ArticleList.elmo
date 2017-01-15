@@ -36,21 +36,6 @@ var _user$project$Components_ArticleList$renderArticle = function (model) {
 var _user$project$Components_ArticleList$renderArticles = function (model) {
 	return A2(_elm_lang$core$List$map, _user$project$Components_ArticleList$renderArticle, model.articles);
 };
-var _user$project$Components_ArticleList$articles = {
-	articles: {
-		ctor: '::',
-		_0: {title: 'How to wash a dog without getting bitten', postedBy: 'Erik Sterneberg', postedOn: '2017-01-01', url: 'https://www.google.se'},
-		_1: {
-			ctor: '::',
-			_0: {title: 'Buying flowers is harder than you think', postedBy: 'Erik Sterneberg', postedOn: '2017-01-01', url: 'https://www.google.se'},
-			_1: {
-				ctor: '::',
-				_0: {title: 'Make love, not war', postedBy: 'Erik Sterneberg', postedOn: '2017-01-01', url: 'https://www.google.se'},
-				_1: {ctor: '[]'}
-			}
-		}
-	}
-};
 var _user$project$Components_ArticleList$Model = function (a) {
 	return {articles: a};
 };
@@ -80,7 +65,7 @@ var _user$project$Components_ArticleList$update = F2(
 			case 'NoOp':
 				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 			case 'Fetch':
-				return {ctor: '_Tuple2', _0: _user$project$Components_ArticleList$articles, _1: _user$project$Components_ArticleList$fetchArticles};
+				return {ctor: '_Tuple2', _0: _user$project$Components_ArticleList$initialModel, _1: _user$project$Components_ArticleList$fetchArticles};
 			case 'FetchSucceed':
 				return {
 					ctor: '_Tuple2',
